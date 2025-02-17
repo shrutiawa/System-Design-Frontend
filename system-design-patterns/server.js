@@ -12,18 +12,21 @@ const express = require("express");
   
   let users = [
     {
+      id: "1",
       name: "Sarah Waters",
       age: 55,
       country: "United Kingdom",
       books: ["Fingersmith", "The Night Watch"],
     },
     {
+      id: "2",
       name: "Haruki Murakami",
       age: 71,
       country: "Japan",
       books: ["Norwegian Wood", "Kafka on the Shore"],
     },
     {
+      id: "3",
       name: "Chimamanda Ngozi Adichie",
       age: 43,
       country: "Nigeria",
@@ -56,11 +59,11 @@ const express = require("express");
     res.json(currentUser);
   })
 
-  app.get("/users/:id", (req,res)=>{
+  app.get("/users/:id", (req, res) => {
     const { id } = req.params;
     console.log(id);
     res.json(users.find((user) => user.id === id));
-  })
+  });
 
   app.get("/users" , (req,res) => {
     res.json(users);
