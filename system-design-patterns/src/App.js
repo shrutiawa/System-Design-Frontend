@@ -1,15 +1,15 @@
 
-import { LargeAuthorListItem } from './components/authors/LargeListItems';
-import { SmallAuthorListItem } from './components/authors/SmallListItems';
-import { RegularList } from './components/Lists/Regular';
+import {Modal} from "./components/LayoutComponent/Modal"
+// import {SplitScreen} from "./components/LayoutComponent/SplitScreen"
+import {LargeBookListItem} from "./components/LayoutComponent/books/LargeListItems"
+import {SmallBookListItem} from "./components/LayoutComponent/books/SmallListItems"
+import {LargeAuthorListItem} from "./components/LayoutComponent/authors/LargeListItems"
+import {SmallAuthorListItem} from "./components/LayoutComponent/authors/SmallListItems"
+import{RegularList} from "./components/LayoutComponent/Lists/Regular"
+import{NumberedList} from "./components/LayoutComponent/Lists/Numbered"
+import {Layout} from "./Layout"
 import { authors } from "./data/author"
 import { books } from "./data/books"
-import { SplitScreen } from './components/split-screen';
-import { Layout } from './Layout';
-import { SmallBookListItem } from './components/books/SmallListItems';
-import { LargeBookListItem } from './components/books/LargeListItems';
-import { NumberedList } from './components/Lists/Numbered';
-import { Modal } from './components/Modal';
 // const LeftSideComponent = ({ title }) => {
 //   return (
 //     <h2 style={{ backgroundColor: "crimson" }}>I am {title}</h2>
