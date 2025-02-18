@@ -4,12 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ContainerApp from './ContainerApp';
+import ControlUncontrolApp from './ControlUncontrolledApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <App/> */}
-    <ContainerApp />
+    {/* <ContainerApp /> */}
+    <ControlUncontrolApp/>
   </React.StrictMode>
 );
 
