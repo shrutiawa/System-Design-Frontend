@@ -1,41 +1,46 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 export const includeUpdatableUser = (Component, userId) => {
-    return (props) => {
-        const [initialUser, setInitialUser] = useState(null);
-        const [user, setUser] = useState(null);
+  return (props) => {
+    const [user, setUser] = useState(null);
+    const [updatableUser, setUpdatableUser] = useState(null);
 
-        useEffect(() => {
-            (async () => {
-                const response = await axios.get(`/users/${userId}`);
-                setInitialUser(response.data);
-                setUser(response.data);
-            })();
-        }, [])
+    useEffect(() => {
+      (async () => {
+        const response = await axios.get(`/users/${userId}`);
+        setUser(response.data);
+        setUpdatableUser(response.data);
+      })();
+    }, []);
 
-        const onChangeUser = updates => {
-            console.log("hello", updates)
-            setUser({ ...user, ...updates });
-        }
+    const userChangeHandler = (updates) => {
+      setUpdatableUser({ ...updatableUser, ...updates });
+    };
 
-        const onPostUser = async () => {
-            console.log("hello post called")
-            const response = await axios.post(`/users/${userId}`, { user });
-            console.log("response",response)
-            setInitialUser(response.data);
-            setUser(response.data);
-        }
+    const userPostHandler = async () => {
+      console.log("post calles")
+      const response = await axios.post(`/users/${userId}`, {
+        user: updatableUser,
+      });
+      console.log(response.data)
+      setUser(response.data);
+      setUpdatableUser(response.data);
+    };
 
-        const resetUser = () => {
-            console.log("hello reset called")
-            setUser(initialUser);
-        }
-        return <Component
-            {...props}
-            user={user}
-            onChangeUser={onChangeUser}
-            onPostUser={onPostUser}
-            onResetUser={resetUser} />
-    }
-}
+    const resetUserHandler = () => {
+      console.log("reset calles")
+      setUpdatableUser(user);
+    };
+
+    return (
+      <Component
+        {...props}
+        updatableUser={updatableUser}
+        changeHandler={userChangeHandler}
+        userPostHandler={userPostHandler}
+        resetUserHandler={resetUserHandler}
+      />
+    );
+  };
+};

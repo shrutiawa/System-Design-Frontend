@@ -1,20 +1,31 @@
-import { includeUpdatableUser } from "./include-updatable-user"
-export const UserInfoForm = includeUpdatableUser(({user, onChangeUser, onPostUser, onResetUser}) => {
-    const { name, age } = user || {};
+import { includeUpdatableUser } from "./include-updatable-user";
 
-    return user ? (
-        <>
-            <label>Name :
-                <input type="text" value={name} onChange={e => onChangeUser({ name: e.target.value })} />
-            </label>
-            <label>Age :
-                <input type="number" value={age} onChange={e => onChangeUser({ age: Number(e.target.value) })} />
-            </label>
-            <button onClick={onResetUser}>Reset</button>
-            <button onClick={onPostUser}>Save</button>
-        </>
-    ) : <h3>Loading...</h3>
+export const UserInfoForm = includeUpdatableUser(
+  ({ updatableUser, changeHandler, userPostHandler, resetUserHandler }) => {
+    const { name, age } = updatableUser || {};
 
-
-
-}, "3")
+    return updatableUser ? (
+      <>
+        <label>
+          Name:
+          <input
+            value={name}
+            onChange={(e) => changeHandler({ name: e.target.value })}
+          />
+        </label>
+        <label>
+          Age:
+          <input
+            value={age}
+            onChange={(e) => changeHandler({ age: Number(e.target.value) })}
+          />
+        </label>
+        <button onClick={resetUserHandler}>Reset</button>
+        <button onClick={userPostHandler}>Save</button>
+      </>
+    ) : (
+      <h3>Loading...</h3>
+    );
+  },
+  "3"
+);
