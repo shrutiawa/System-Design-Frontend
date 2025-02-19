@@ -52,6 +52,7 @@ function ControlUncontrolApp() {
         setData({ ...data, ...dataFromStep });
         setCurrentStepIndex(currentStepIndex + 1);
     }
+    
 
 
     return (
