@@ -1,9 +1,11 @@
 const express = require("express");
+
 const app = express();
 
 app.use(express.json());
 
 let currentUser = {
+  id: "1",
   name: "Sarah Waters",
   age: 55,
   country: "United Kingdom",
@@ -58,28 +60,23 @@ let books = [
   },
 ];
 
-app.get("/current-user", (req, res) => {
-  res.json(currentUser);
-})
+app.get("/current-user", (req, res) => res.json(currentUser));
 
 app.get("/users/:id", (req, res) => {
   const { id } = req.params;
-  console.log(id);
   res.json(users.find((user) => user.id === id));
 });
 
-app.get("/users", (req, res) => {
-  res.json(users);
-})
+app.get("/users", (req, res) => res.json(users));
 
 app.post("/users/:id", (req, res) => {
   const { id } = req.params;
-  const { user: editeduser } = req.body;
+  const { user: editedUser } = req.body;
 
-  users = users.map((user) => (user.id === id ? editeduser : user));
+  users = users.map((user) => (user.id === id ? editedUser : user));
 
-  res.json(user.find((user) => user.id === id));
-})
+  res.json(users.find((user) => user.id === id));
+});
 
 app.get("/books", (req, res) => res.json(books));
 
