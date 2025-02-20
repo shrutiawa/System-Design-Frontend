@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import ContainerApp from './ContainerApp';
 import ControlUncontrolApp from './ControlUncontrolledApp';
 import HOCApp from './HOCApp';
+import CustomHookApp from './CustomHookApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,7 +14,8 @@ root.render(
     {/* <App/> */}
     {/* <ContainerApp /> */}
     {/* <ControlUncontrolApp/> */}
-    <HOCApp/>
+    {/* <HOCApp/> */}
+    <CustomHookApp/>
   </React.StrictMode>
 );
 
