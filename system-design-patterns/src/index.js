@@ -7,6 +7,9 @@ import ContainerApp from './ContainerApp';
 import ControlUncontrolApp from './ControlUncontrolledApp';
 import HOCApp from './HOCApp';
 import CustomHookApp from './CustomHookApp';
+import FunctionalProgApp from './FunctionalProgApp';
+import CompoundApp from './CompoundApp';
+import ObserverApp from './ObserverApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,7 +18,10 @@ root.render(
     {/* <ContainerApp /> */}
     {/* <ControlUncontrolApp/> */}
     {/* <HOCApp/> */}
-    <CustomHookApp/>
+    {/* <CustomHookApp/> */}
+    {/* <FunctionalProgApp/> */}
+    {/* <CompoundApp/> */}
+    <ObserverApp/>
   </React.StrictMode>
 );
 
